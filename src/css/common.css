@@ -32,6 +32,7 @@ img {
   padding: 5px;
 }
 .weather-list {
+  margin-left: 10px;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
@@ -96,5 +97,8 @@ button {
   }
   .weather-text {
     font-size: 12px;
+  }
+  .temperature {
+    font-size: 14px;
   }
 }
