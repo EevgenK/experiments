@@ -94,4 +94,7 @@ button {
   .itput-value {
     width: 50%;
   }
+  .weather-text {
+    font-size: 12px;
+  }
 }

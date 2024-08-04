@@ -47,7 +47,7 @@ function createMarkup(arr) {
         <p>${date}</p>
         <img class='weather-icon' src="${icon}" alt="${text}">
                 </img>
-          <p>${text}</p>
+          <p class='weather-text'>${text}</p>
             <h4 class='temperature'>Середня температура: ${avgtemp_c}°C</h4>
       </li>
     `
