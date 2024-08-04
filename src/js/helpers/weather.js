@@ -4,13 +4,13 @@ import Notiflix from 'notiflix';
 import { getWeather } from '../getApi';
 
 const refs = {
-  weatherBtn: document.querySelector('[data-weather]'),
+  weatherBtn: document.querySelector('[data-start]'),
   daysValue: document.querySelector('[data-days]'),
   city: document.querySelector('#city-picker'),
   date: document.querySelector('#datetime-picker'),
   list: document.querySelector('.js-list'),
 };
-refs.weatherBtn.disabled = true;
+// refs.weatherBtn.disabled = true;
 refs.weatherBtn.addEventListener('click', onWeatherBtn);
 function onWeatherBtn(e) {
   let city = refs.city.value;
@@ -27,11 +27,11 @@ function onWeatherBtn(e) {
   }
 }
 
-refs.city.addEventListener('input', () => {
-  if (refs.city.value !== '') {
-    refs.weatherBtn.disabled = false;
-  }
-});
+// refs.city.addEventListener('input', () => {
+//   if (refs.city.value !== '') {
+//     refs.weatherBtn.disabled = false;
+//   }
+// });
 
 function createMarkup(arr) {
   return arr
