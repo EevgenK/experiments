@@ -1,5 +1,5 @@
 export function getWeather(days, city) {
-  const baseUrl = 'http://api.weatherapi.com/v1';
+  const baseUrl = 'https://api.weatherapi.com/v1';
   const apiKey = 'c9adebbe6f8f4e05956132625240408&q';
 
   return fetch(
