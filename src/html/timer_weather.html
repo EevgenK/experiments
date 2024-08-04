@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Countdown timer</title>
+    <link rel="stylesheet" href="../css/common.css" />
+  </head>
+  <body>
+    <p><a href="../index.html">Go back</a></p>
+    <div class="input-box">
+      <input class="itput-value" type="text" id="city-picker" />
+      <button type="button" data-weather>weather</button>
+      <input class="itput-value" type="text" id="datetime-picker" />
+      <button type="button" data-start>timer</button>
+    </div>
+
+    <div class="timer">
+      <div class="field">
+        <span class="value" data-days>00</span>
+        <span class="label">Днів</span>
+      </div>
+      <div class="field">
+        <span class="value" data-hours>00</span>
+        <span class="label">Годин</span>
+      </div>
+      <div class="field">
+        <span class="value" data-minutes>00</span>
+        <span class="label">хвилин</span>
+      </div>
+      <div class="field">
+        <span class="value" data-seconds>00</span>
+        <span class="label">секунд</span>
+      </div>
+    </div>
+    <ul class="weather-list js-list"></ul>
+
+    <script src="../js/02-timer.js" type="module"></script>
+  </body>
+</html>
