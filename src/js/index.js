@@ -1,2 +1,1 @@
-import './timer';
-import './helpers/weather';
+import './news';

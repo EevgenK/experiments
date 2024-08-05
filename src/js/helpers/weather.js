@@ -10,12 +10,12 @@ const refs = {
   date: document.querySelector('#datetime-picker'),
   list: document.querySelector('.js-list'),
 };
-// refs.weatherBtn.disabled = true;
+
 refs.weatherBtn.addEventListener('click', onWeatherBtn);
 function onWeatherBtn(e) {
   let city = refs.city.value;
   let dateDiference = inputDate - Date.now();
-  let date = Number(convertMs(dateDiference).days) + 1;
+  let date = Number(convertMs(dateDiference).days) + 2;
   if (date > 0) {
     getWeather(date, city)
       .then(
@@ -54,7 +54,3 @@ function createMarkup(arr) {
     )
     .join(' ');
 }
-
-// getWeather(5, 'Bila Tserkva')
-//   .then(data => console.log(data))
-//   .catch(err => console.log(err));
