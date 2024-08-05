@@ -1,1 +1,0 @@
-{"mappings":"gfAAAA,EAAA,S","sources":["src/js/02-timer.js"],"sourcesContent":["import './helpers/inFutureTimer';\nimport './helpers/weather';\n"],"names":["parcelRequire"],"version":3,"file":"timer_weather.626182f6.js.map"}
