@@ -1,5 +1,5 @@
 import { Timer } from './classes/Timer';
-import { currentDate } from './currentDate';
+import { currentDate } from './helpers/currentDate';
 
 document.querySelector('body').insertAdjacentHTML('afterbegin', currentDate());
 

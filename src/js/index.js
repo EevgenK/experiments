@@ -1,1 +1,1 @@
-import './news';
+import './helpers/news';

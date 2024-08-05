@@ -12,6 +12,7 @@ button {
   box-shadow: inset 0 -3em 3em rgba(9, 15, 205, 0.8), 0 0 0 2px #fff,
     0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
 }
+
 .navigation {
   display: flex;
   gap: 10px;
@@ -69,4 +70,92 @@ button {
 }
 .show {
   display: block;
+}
+/* TO-DO */
+
+.link {
+  color: orange;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.todo-form {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 25px;
+  box-shadow: inset 0 -3em 3em #80cbc4, 0 0 0 2px #fff,
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+}
+
+.todo-btn {
+  box-shadow: inset 0 -3em 3em #80cbc4, 0 0 0 2px #fff,
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+}
+.todo-input {
+  border-radius: 10px;
+  border-color: #fff;
+  padding: 5px 10px;
+}
+.todo-text {
+  font-size: 20px;
+  color: #fff;
+}
+.modal {
+  background-color: #80cbc4;
+  padding: 50px;
+  border-radius: 5px;
+}
+.modal-btn {
+  width: 100px;
+  color: #fff;
+  box-shadow: inset 0 -3em 3em #eb240a, 0 0 0 2px #fff,
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+}
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+}
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  box-shadow: inset 0 -3em 3em #80cbc4, 0 0 0 2px #fff,
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  padding: 10px;
+}
+.success {
+  color: #fff;
+  background-color: #28a745;
+}
+
+.success:hover {
+  background-color: #218838;
+}
+
+.success:active {
+  background-color: #1e7e34;
+}
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+.danger-btn {
+  width: 50px;
+  color: #fff;
+  box-shadow: inset 0 -3em 3em #eb240a, 0 0 0 2px #fff,
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+}
+
+.modal-btn:hover,
+.danger-btn:hover {
+  background-color: #c82333;
+}
+
+.modal-btn:active,
+.danger-btn:active {
+  background-color: #bd2130;
 }

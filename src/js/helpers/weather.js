@@ -1,7 +1,7 @@
 import { inputDate } from './inFutureTimer';
 import { convertMs } from './convertMs';
 import Notiflix from 'notiflix';
-import { getWeather } from '../getApi';
+import { getWeather } from './getApi';
 
 const refs = {
   weatherBtn: document.querySelector('[data-start]'),
