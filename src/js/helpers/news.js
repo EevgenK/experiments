@@ -7,8 +7,20 @@ const refs = {
   loader: document.querySelector('.news-loader'),
 };
 
-const getItemTemplate = ({ objectID, title, url }) =>
-  `<li class="news-item" data-is='${objectID}><a href="${url}" target="_blank">${title}</a></li>`;
+const getItemTemplate = ({
+  source: { name },
+  publishedAt,
+  title,
+  url,
+  urlToImage,
+}) =>
+  `<li class="news-item" data-is='${publishedAt}'>
+  <img class='news-icon' src="${urlToImage}" alt="${title}">
+  <div class="item-text-box">
+       <a href="${url}" target="_blank">${title}</a>
+   <p>${name}</p>
+        </div>
+    </li>`;
 
 const render = arr => {
   const list = arr.map(getItemTemplate);
@@ -26,8 +38,8 @@ const onHandleSubmit = e => {
   lockForm();
   const { value } = e.target.elements.query;
   getNewsApi(value)
-    .then(({ hits }) => {
-      render(hits);
+    .then(({ articles }) => {
+      render(articles);
       newsListStyle();
     })
     .finally(() => {

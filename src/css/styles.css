@@ -55,7 +55,25 @@ button {
   padding: 10px;
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.news-item {
+  padding: 5px;
+  width: 400px;
+  display: flex;
   flex-direction: column;
+  gap: 5px;
+  border-radius: 10px;
+  border-color: #fff;
+  box-shadow: inset 0 -3em 3em rgba(9, 15, 205, 0.8), 0 0 0 2px #fff,
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+}
+.news-icon {
+  height: 70%;
+}
+.item-text-box {
+  color: white;
 }
 .news-show {
   border: 20px groove rgba(9, 15, 205, 0.8);
@@ -158,4 +176,14 @@ button {
 .modal-btn:active,
 .danger-btn:active {
   background-color: #bd2130;
+}
+@media screen and (max-width: 600px) {
+  .news-item {
+    width: 100%;
+  }
+
+  .news-list {
+    flex-direction: column;
+    align-content: center;
+  }
 }
