@@ -20,7 +20,9 @@ function getWeather(days, city) {
 function getNewsApi(value) {
   const URL = 'https://newsapi.org/v2/everything';
   const KEY = '545b320259f148c98f761a8b0ed17e83';
-  return fetch(`${URL}?q=${value}&apiKey=${KEY}`).then(resp => resp.json());
+  return fetch(`${URL}?q=${value}&apiKey=${KEY}`)
+    .then(resp => resp.json())
+    .catch(message => console.log(message));
 }
 
 export { getWeather, getNewsApi };
