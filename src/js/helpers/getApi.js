@@ -22,7 +22,7 @@ function getNewsApi(value) {
   const KEY = '545b320259f148c98f761a8b0ed17e83';
   return fetch(`${URL}?q=${value}&apiKey=${KEY}`)
     .then(resp => resp.json())
-    .catch(message => console.log(message));
+    .catch(({ message }) => console.log(message));
 }
 
 export { getWeather, getNewsApi };
