@@ -1,5 +1,5 @@
 import toastr from 'toastr';
-
+import axios from 'axios';
 export const getItemTemplate = ({
   id,
   isDone,
@@ -19,24 +19,55 @@ export const getItemTemplate = ({
   </div>
 </li>`;
 
-export const createTodo = payload => {
-  localStorage.setItem('todos', JSON.stringify(payload));
-};
+// const URL = 'https://66b1506f1ca8ad33d4f3e458.mockapi.io';
 
-export const fetchTodos = () => {
-  try {
-    toastr.success('Todos loaded successfully');
-    return JSON.parse(localStorage.getItem('todos')) || [];
-  } catch (error) {
-    toastr.error("can't load todos");
-    return [];
-  }
-};
+axios.defaults.baseURL = 'https://66b1506f1ca8ad33d4f3e458.mockapi.io';
 
-export const updateTodo = payload => {
-  localStorage.setItem('todos', JSON.stringify(payload));
-};
+// export const createTodo = payload => {
+//   return fetch(`${URL}/todos`, {
+//     method: 'POST',
+//     headers: { 'Content-Type': 'application/json' },
+//     body: JSON.stringify(payload),
+//   }).then(resp => resp.json());
+// };
 
-export const deleteTodo = payload => {
-  localStorage.setItem('todos', JSON.stringify(payload));
-};
+export const createTodo = payload =>
+  axios.post(`/todos`, payload).then(({ data }) => data);
+// export const fetchTodos = () => {
+//   return fetch(`${URL}/todos`)
+//     .then(resp => resp.json())
+//     .catch(() => []);
+// };
+
+export const fetchTodos = () =>
+  axios
+    .get(`/todos`)
+    .then(({ data }) => data)
+    .catch(() => []);
+
+// export const updateTodo = (id, payload) => {
+//   return fetch(`${URL}/todos/${id}`, {
+//     method: 'PUT',
+//     headers: { 'Content-Type': 'application/json' },
+//     body: JSON.stringify(payload),
+//   })
+//     .then(resp => resp.json())
+//     .catch(() => []);
+// };
+
+export const updateTodo = (id, payload) =>
+  axios
+    .put(`/todos/${id}`, payload)
+    .then(({ data }) => data)
+    .catch(() => []);
+
+// export const deleteTodo = id => {
+//   return fetch(`${URL}/todos/${id}`, { method: 'DELETE' })
+//     .then(resp => resp.json())
+//     .catch(() => []);
+// };
+export const deleteTodo = id =>
+  axios
+    .delete(`/todos/${id}`)
+    .then(({ data }) => data)
+    .catch(() => []);

@@ -37,19 +37,21 @@ const render = () => {
 const handleSubmit = e => {
   const { value } = e.target.elements.text;
   const payload = {
-    id: v4(),
     text: value,
     isDone: false,
     created: new Date(),
   };
   e.preventDefault();
-  createTodo(items);
-  items.push(payload);
-  render();
-  refs.form.reset();
+  createTodo(payload).then(newTodo => {
+    items.push(newTodo);
+    render();
+    refs.form.reset();
+  });
+
   // toastr.success('Todo created successfully');
 };
 const toggleItem = id => {
+  const item = items.find(item => item.id === id);
   items = items.map(item =>
     item.id === id
       ? {
@@ -58,7 +60,7 @@ const toggleItem = id => {
         }
       : item
   );
-  updateTodo(items);
+  updateTodo(id, { ...item, isDone: !item.isDone });
 };
 const viewItem = id => {
   const { created } = items.find(item => item.id === id);
@@ -69,9 +71,10 @@ const viewItem = id => {
 
 const deleteItem = id => {
   items = items.filter(item => item.id !== id);
-  deleteTodo(items);
-  render();
-  toastr.success('Todo deleted successfully');
+  deleteTodo(id).then(() => {
+    render();
+    toastr.success('Todo deleted successfully');
+  });
 };
 
 const handleListClick = e => {
@@ -106,8 +109,10 @@ const loadData = () => {
 };
 
 // run
-loadData();
-render();
+fetchTodos().then(data => {
+  items = data;
+  render();
+});
 
 // add event listeners
 refs.form.addEventListener('submit', handleSubmit);
