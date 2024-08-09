@@ -1,3 +1,21 @@
+import axios from 'axios';
+
+axios.defaults.headers.common['x-api-key'] =
+  'live_UyX6Lvoafpw1TLCC7wZpZ8IP5h7v1HI7WbEG0bh7lTeSZzWmJ5TFmvpTcvvLyKyE';
+let AXIOUS_URL = 'https://api.thecatapi.com/v1';
+
+function fetchBreeds(pet) {
+  AXIOUS_URL = `https://api.the${pet}api.com/v1`;
+  return fetch(`${AXIOUS_URL}/breeds?breed_ids=beng&x-api-key`).then(resp =>
+    resp.json()
+  );
+}
+
+function fetchCatByBreed(breedId) {
+  return fetch(
+    `${AXIOUS_URL}/images/search?breed_ids=${breedId}&x-api-key`
+  ).then(resp => resp.json());
+}
 function getWeather(days, city) {
   const baseUrl = 'https://api.weatherapi.com/v1';
   const apiKey = 'c9adebbe6f8f4e05956132625240408&q';
@@ -25,4 +43,4 @@ function getNewsApi(value) {
     .catch(response => console.log(response.message));
 }
 
-export { getWeather, getNewsApi };
+export { getWeather, getNewsApi, fetchBreeds, fetchCatByBreed };

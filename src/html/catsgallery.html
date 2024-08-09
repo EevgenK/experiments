@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <title>Homework 10</title>
+  </head>
+  <body>
+    <p><a href="../index.html">Go back</a></p>
+    <div class="select-box">
+      <select id="pet-select">
+        <optgroup label="Pets:">
+          <option data-placeholder="true"></option>
+          <option class="select_color" value="cat">Cats</option>
+          <option class="select_color" value="dog">Dogs</option>
+        </optgroup>
+      </select>
+      <select id="breed-select">
+        <!-- <option data-placeholder="true"></option> -->
+        <!-- <option value="111111">1111</option> -->
+      </select>
+    </div>
+    <p class="loader hidden"><span class="loader-icon"></span></p>
+
+    <p class="error hidden">
+      Oops! Something went wrong! Try reloading the page!
+    </p>
+    <div class="cat-info"></div>
+
+    <script src="../js/cats.js" type="module"></script>
+  </body>
+</html>
