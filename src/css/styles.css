@@ -48,6 +48,24 @@ button {
   box-shadow: inset 0 -3em 3em lightgray, 0 0 0 2px #fff,
     0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
 }
+/* NEWS */
+.pagination {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+.pagination-btn_move {
+  width: 30px;
+}
+.pagination-btns {
+  display: flex;
+  gap: 3px;
+}
+.pagination-btn {
+  width: 30px;
+}
+
 .news-input {
   border-radius: 10px;
   border-color: rgba(9, 15, 205, 0.8);
@@ -89,9 +107,13 @@ button {
   display: none;
   text-align: center;
 }
+.search-result {
+  display: none;
+}
 .show {
   display: block;
 }
+
 /* TO-DO */
 
 .link {

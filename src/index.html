@@ -32,9 +32,17 @@
         <input class="news-input" type="text" name="query" />
       </label>
       <button class="news-button" type="submit">Пошук</button>
+      <p class="news-loader">Loading ...</p>
+      <div class="search-result">
+        <div class="pagination">
+          <button class="pagination-btn_move-left"><</button>
+          <div class="pagination-btns"></div>
+          <button class="pagination-btn_move-right">></button>
+        </div>
+        <ul class="news-list"></ul>
+      </div>
     </form>
-    <p class="news-loader">Loading ...</p>
-    <ul class="news-list"></ul>
+
     <footer></footer>
     <script src="./js/index.js" type="module"></script>
   </body>

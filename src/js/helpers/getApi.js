@@ -35,10 +35,12 @@ function getWeather(days, city) {
 //   return fetch(`${URL}?query=${value}`).then(resp => resp.json());
 // }
 
-function getNewsApi(value) {
+function getNewsApi(value, pageNumber) {
   const URL = 'https://newsapi.org/v2/everything';
   const KEY = '545b320259f148c98f761a8b0ed17e83';
-  return fetch(`${URL}?q=${value}&apiKey=${KEY}`)
+  const page_size = '&pageSize=10';
+
+  return fetch(`${URL}?q=${value}&apiKey=${KEY}${page_size}&page=${pageNumber}`)
     .then(resp => resp.json())
     .catch(response => console.log(response.message));
 }

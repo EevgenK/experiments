@@ -1,10 +1,13 @@
 import { getNewsApi } from './getApi';
 
+import './news/paginationMarkup';
+import { page } from './news/paginationMarkup';
 const refs = {
   form: document.querySelector('.news-form'),
   list: document.querySelector('.news-list'),
   submitBtn: document.querySelector('.news-button'),
   loader: document.querySelector('.news-loader'),
+  searchBlock: document.querySelector('.search-result'),
 };
 
 const getItemTemplate = ({
@@ -27,23 +30,30 @@ const render = arr => {
   refs.list.innerHTML = list.join('');
 };
 
-const showLoader = () => refs.loader.classList.add('show');
-const hideLoader = () => refs.loader.classList.remove('show');
-const newsListStyle = () => refs.list.classList.add('news-show');
+const showLoader = el => el.classList.add('show');
+const hideLoader = el => el.classList.remove('show');
+const newsListStyle = () => refs.searchBlock.classList.add('news-show');
 const lockForm = () => refs.submitBtn.setAttribute('disabled', true);
 const unlockForm = () => refs.submitBtn.removeAttribute('disabled');
+
 const onHandleSubmit = e => {
   e.preventDefault();
-  showLoader();
+  hideLoader(refs.searchBlock);
+  showLoader(refs.loader);
+
   lockForm();
   const { value } = e.target.elements.query;
-  getNewsApi(value)
+  getNewsApi(value, page)
     .then(({ articles }) => {
       render(articles);
       newsListStyle();
+      showLoader(refs.searchBlock);
+    })
+    .catch(err => {
+      console.log(err.message);
     })
     .finally(() => {
-      hideLoader();
+      hideLoader(refs.loader);
       unlockForm();
     });
 };
