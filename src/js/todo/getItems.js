@@ -22,7 +22,8 @@ export const getItemTemplate = ({
 // USED AXIOUS
 
 axios.defaults.baseURL = 'https://66b1506f1ca8ad33d4f3e458.mockapi.io';
-
+// LOCAL SERVER (EXXPRESS)
+// axios.defaults.baseURL = 'http://localhost:3000';
 export const createTodo = payload =>
   axios.post(`/todos`, payload).then(({ data }) => data);
 

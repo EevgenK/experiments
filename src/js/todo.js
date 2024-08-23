@@ -43,6 +43,7 @@ const handleSubmit = e => {
   };
   e.preventDefault();
   createTodo(payload).then(newTodo => {
+    console.log(newTodo);
     items.push(newTodo);
     render();
     refs.form.reset();
