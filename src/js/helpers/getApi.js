@@ -38,7 +38,7 @@ function getWeather(days, city) {
 function getNewsApi(value, pageNumber) {
   const URL = 'https://newsapi.org/v2/everything';
   const KEY = '545b320259f148c98f761a8b0ed17e83';
-  const page_size = '&pageSize=10';
+  const page_size = '&pageSize=12';
 
   return fetch(`${URL}?q=${value}&apiKey=${KEY}${page_size}&page=${pageNumber}`)
     .then(resp => resp.json())

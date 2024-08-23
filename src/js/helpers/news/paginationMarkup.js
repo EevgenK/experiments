@@ -19,8 +19,11 @@ const paginationMarkup = () => {
 };
 
 const handlePageClick = e => {
+  console.log(e.target);
   if (e.target.classList.value === 'pagination-btn_move-right') {
     page += 1;
+    pageSize += 1;
+    paginationMarkup();
   } else if (
     e.target.classList.value === 'pagination-btn_move-left' &&
     page !== 1

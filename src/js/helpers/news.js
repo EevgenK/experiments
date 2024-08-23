@@ -9,7 +9,7 @@ const refs = {
   loader: document.querySelector('.news-loader'),
   searchBlock: document.querySelector('.search-result'),
 };
-
+let query = '';
 const getItemTemplate = ({
   source: { name },
   publishedAt,
@@ -38,15 +38,23 @@ const unlockForm = () => refs.submitBtn.removeAttribute('disabled');
 
 const onHandleSubmit = e => {
   e.preventDefault();
+  console.log('query-', query);
+  console.log(e.target.elements.query.value);
+  // if (e.target.elements.query.value !== query) {
+  //   page = 1;
+  // }
+  console.log('page-', page);
   hideLoader(refs.searchBlock);
   showLoader(refs.loader);
 
   lockForm();
   const { value } = e.target.elements.query;
+  query = value;
   getNewsApi(value, page)
     .then(({ articles }) => {
       render(articles);
       newsListStyle();
+
       showLoader(refs.searchBlock);
     })
     .catch(err => {

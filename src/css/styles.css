@@ -51,6 +51,7 @@ button {
 /* NEWS */
 .pagination {
   margin-top: 10px;
+  margin-bottom: 10px;
   display: flex;
   justify-content: center;
   gap: 5px;
@@ -115,7 +116,9 @@ button {
 }
 
 /* TO-DO */
-
+.todo-section {
+  width: 350px;
+}
 .link {
   color: orange;
   font-weight: bold;
@@ -125,9 +128,11 @@ button {
 .todo-form {
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
   padding: 10px 25px;
   box-shadow: inset 0 -3em 3em #80cbc4, 0 0 0 2px #fff,
     0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
 }
 
 .todo-btn {
@@ -159,7 +164,7 @@ button {
   flex-direction: column;
   row-gap: 10px;
   list-style: none;
-  padding: 10px;
+  padding: 10px 0px;
   margin: 0;
 }
 .todo-item {

@@ -19,10 +19,34 @@ export const getItemTemplate = ({
   </div>
 </li>`;
 
-// const URL = 'https://66b1506f1ca8ad33d4f3e458.mockapi.io';
+// USED AXIOUS
 
 axios.defaults.baseURL = 'https://66b1506f1ca8ad33d4f3e458.mockapi.io';
 
+export const createTodo = payload =>
+  axios.post(`/todos`, payload).then(({ data }) => data);
+
+export const reedTodos = () =>
+  axios
+    .get(`/todos`)
+    .then(({ data }) => data)
+    .catch(() => []);
+
+export const updateTodo = (id, payload) =>
+  axios
+    .put(`/todos/${id}`, payload)
+    .then(({ data }) => data)
+    .catch(() => []);
+
+export const deleteTodo = id =>
+  axios
+    .delete(`/todos/${id}`)
+    .then(({ data }) => data)
+    .catch(() => []);
+
+// STANDART FETCH
+
+// const URL = 'https://66b1506f1ca8ad33d4f3e458.mockapi.io';
 // export const createTodo = payload => {
 //   return fetch(`${URL}/todos`, {
 //     method: 'POST',
@@ -30,21 +54,11 @@ axios.defaults.baseURL = 'https://66b1506f1ca8ad33d4f3e458.mockapi.io';
 //     body: JSON.stringify(payload),
 //   }).then(resp => resp.json());
 // };
-
-export const createTodo = payload =>
-  axios.post(`/todos`, payload).then(({ data }) => data);
-// export const fetchTodos = () => {
+// export const reedTodos = () => {
 //   return fetch(`${URL}/todos`)
 //     .then(resp => resp.json())
 //     .catch(() => []);
 // };
-
-export const fetchTodos = () =>
-  axios
-    .get(`/todos`)
-    .then(({ data }) => data)
-    .catch(() => []);
-
 // export const updateTodo = (id, payload) => {
 //   return fetch(`${URL}/todos/${id}`, {
 //     method: 'PUT',
@@ -54,20 +68,8 @@ export const fetchTodos = () =>
 //     .then(resp => resp.json())
 //     .catch(() => []);
 // };
-
-export const updateTodo = (id, payload) =>
-  axios
-    .put(`/todos/${id}`, payload)
-    .then(({ data }) => data)
-    .catch(() => []);
-
 // export const deleteTodo = id => {
 //   return fetch(`${URL}/todos/${id}`, { method: 'DELETE' })
 //     .then(resp => resp.json())
 //     .catch(() => []);
 // };
-export const deleteTodo = id =>
-  axios
-    .delete(`/todos/${id}`)
-    .then(({ data }) => data)
-    .catch(() => []);

@@ -5,7 +5,7 @@ import moment from 'moment';
 import {
   getItemTemplate,
   createTodo,
-  fetchTodos,
+  reedTodos,
   updateTodo,
   deleteTodo,
 } from './todo/getItems';
@@ -105,11 +105,11 @@ const handleKeyPress = ({ code }) => {
   }
 };
 const loadData = () => {
-  items = fetchTodos();
+  items = reedTodos();
 };
 
 // run
-fetchTodos().then(data => {
+reedTodos().then(data => {
   items = data;
   render();
 });
