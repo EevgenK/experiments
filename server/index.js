@@ -56,7 +56,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 app.get('/todos', (req, res) => {
-  // res.header('Access-Control-Allow-Origin', '*') orres.header('Access-Control-Allow-Origin', 'http://localhost:1234/');
+  // res.header('Access-Control-Allow-Origin', '*') or res.header('Access-Control-Allow-Origin', 'http://localhost:1234/');
   // THIS TIME DESIGION is 'npm i cors'
   res.json(todos);
 });
@@ -67,10 +67,15 @@ app.post('/todos', function (req, res) {
   res.send(reqBody);
 });
 
+app.put('/todos/:id', function (req, res) {
+  let id = todos.findIndex(({ id }) => id === req.params.id);
+  todos[id] = req.body;
+  res.json(todos);
+});
+
 app.delete('/todos/:id', (req, res) => {
   // console.log('id-', req.params.id);
   // console.log('?-', req.query.size);
-
   todos = todos.filter(({ id }) => id !== req.params.id);
   res.json(todos);
 });

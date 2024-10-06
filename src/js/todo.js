@@ -26,6 +26,7 @@ const refs = {
   modalText: modal.element().querySelector('.modal-text'),
   modalButton: modal.element().querySelector('button'),
 };
+console.log(refs.list.tagName === 'UL');
 let items = [];
 const render = () => {
   const list = items.map(getItemTemplate);

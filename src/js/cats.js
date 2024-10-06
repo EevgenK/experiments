@@ -9,6 +9,8 @@ const refs = {
   error: document.querySelector('.error'),
   info: document.querySelector('.cat-info'),
 };
+const toHideElement = el => el.classList.add('hidden');
+const toShowElement = el => el.classList.remove('hidden');
 
 new SlimSelect({
   select: '#pet-select',
@@ -42,13 +44,10 @@ const infoMarkup = (imgObj, fullObg) => {
     </div>
     `);
 };
-const toHideElement = el => el.classList.add('hidden');
-const toShowElement = el => el.classList.remove('hidden');
 
 const onHandleSelect = e => {
   toHideElement(refs.petSelect);
   toHideElement(refs.select);
-  toHideElement(refs.info);
   toShowElement(refs.loader);
 
   const targetID = e.currentTarget.value;
@@ -79,7 +78,7 @@ const onHandleSelect = e => {
 };
 const onPetSelect = e => {
   colection = fetchBreeds(e.currentTarget.value);
-  toHideElement(refs.info);
+  // toHideElement(refs.info);
   colection.then(resp => {
     selectMarkup(resp);
     selectBreed = new SlimSelect({
@@ -91,8 +90,10 @@ const onPetSelect = e => {
     toShowElement(refs.select);
   });
 };
+
 toHideElement(refs.select);
 
 refs.petSelect.addEventListener('change', onPetSelect);
 
 refs.select.addEventListener('change', onHandleSelect);
+noda;
